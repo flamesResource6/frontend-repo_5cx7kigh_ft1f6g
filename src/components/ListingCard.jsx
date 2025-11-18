@@ -1,6 +1,6 @@
-import { Star, MapPin } from 'lucide-react'
+import { Star, MapPin, MessageSquare } from 'lucide-react'
 
-export default function ListingCard({ item, onSave }) {
+export default function ListingCard({ item, onSave, onMessage }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
       <div className="aspect-video bg-slate-200 overflow-hidden">
@@ -20,6 +20,9 @@ export default function ListingCard({ item, onSave }) {
         <div className="mt-3 flex gap-2">
           <a href={`/#/apartment/${item.id}`} className="px-3 py-2 border rounded-lg">View</a>
           <button onClick={() => onSave?.(item)} className="px-3 py-2 bg-slate-900 text-white rounded-lg">Save</button>
+          <button onClick={() => onMessage?.(item.vendor_id)} className="px-3 py-2 border rounded-lg flex items-center gap-2">
+            <MessageSquare className="w-4 h-4" /> Message
+          </button>
         </div>
       </div>
     </div>
